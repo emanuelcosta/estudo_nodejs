@@ -29,7 +29,6 @@ router.post('/membros', async (req, res) => {
 router.get('/membros', async (req, res) => {
   
   try {
-    res.status(200).send(process.env.URL_FRONTEND);
     const membros = await Membro.find();
     res.status(200).json(membros);
   } catch (error) {
