@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors'); // Importando o CORS
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 // Configurando CORS para permitir requisições de origens específicas ou de qualquer origem
 
 app.use(cors({
-  origin: '*', // Permite todos os domínios
+  origin: process.env.URL_FRONTEND, // Permite somente o frontend no localhost:8080
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Permite os métodos
   allowedHeaders: ['Content-Type', 'Authorization'] // Permite os cabeçalhos específicos
 }));

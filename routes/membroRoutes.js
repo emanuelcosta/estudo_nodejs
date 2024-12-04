@@ -27,8 +27,9 @@ router.post('/membros', async (req, res) => {
 
 // Obter todos os membros
 router.get('/membros', async (req, res) => {
-  console.log('acessou aqui...');
+  
   try {
+    res.status(200).send(process.env.URL_FRONTEND);
     const membros = await Membro.find();
     res.status(200).json(membros);
   } catch (error) {
