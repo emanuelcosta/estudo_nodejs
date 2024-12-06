@@ -1,27 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const PedidoRevista = require('../models/pedido_revista');
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Types;
+const {add, getAll} = require('../controllers/Pedidos_revistasController');
 
 // Criar novo membro
-router.post('/pedidos_revistas', async (req, res) => {
-  try {
-    const { nome, classe, tipoRevista } = req.body;
-    const quantidade = Number(req.body.quantidade);
-    
-    const novoPedido = new PedidoRevista({
-      nome,
-      classe,
-      tipoRevista,
-      quantidade
-    });
+router.post('/pedidos_revistas', add );
 
-    await novoPedido.save();
-    res.status(201).json(novoPedido);
-  } catch (error) {
-    res.status(400).json({ message: 'Erro ao salvar pedido de revista.', error });
-  }
-});
+router.get('/pedidos_revistas', getAll )
 
 module.exports = router;
