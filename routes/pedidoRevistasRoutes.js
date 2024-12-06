@@ -7,7 +7,8 @@ const { ObjectId } = mongoose.Types;
 // Criar novo membro
 router.post('/pedidos_revistas', async (req, res) => {
   try {
-    const { nome, classe, tipoRevista, quantidade } = req.body;
+    const { nome, classe, tipoRevista } = req.body;
+    const quantidade = Number(req.body.quantidade);
     
     const novoPedido = new PedidoRevista({
       nome,
@@ -20,16 +21,6 @@ router.post('/pedidos_revistas', async (req, res) => {
     res.status(201).json(novoPedido);
   } catch (error) {
     res.status(400).json({ message: 'Erro ao salvar pedido de revista.', error });
-  }
-});
-
-router.get('/pedidos_revistas', async (req, res) => {
-  try {
-   
-    
-    res.status(201).json('teste');
-  } catch (error) {
-    res.status(200).json({ message: 'Erro ao salvar pedido de revista.', error });
   }
 });
 

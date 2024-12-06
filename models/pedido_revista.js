@@ -6,7 +6,7 @@ const pedidoRevistaSchema = new mongoose.Schema({
     required: true
   },
   classe: {
-    type: Date,
+    type: String,
     required: true,
     enum: ['Adultos', 'Jovens', 'Crianças']
   },
