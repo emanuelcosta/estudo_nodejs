@@ -29,7 +29,7 @@ router.get('/pedidos_revistas', async (req, res) => {
     
     res.status(201).json('teste');
   } catch (error) {
-    res.status(400).json({ message: 'Erro ao salvar pedido de revista.', error });
+    res.status(200).json({ message: 'Erro ao salvar pedido de revista.', error });
   }
 });
 
