@@ -2,10 +2,10 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Types;
-const {add, getAll} = require('../controllers/Pedidos_revistasController');
+const {store, getAll} = require('../controllers/Pedidos_revistasController');
 
 // Criar novo membro
-router.post('/pedidos_revistas', add );
+router.post('/pedidos_revistas', store );
 
 router.get('/pedidos_revistas', getAll )
 
